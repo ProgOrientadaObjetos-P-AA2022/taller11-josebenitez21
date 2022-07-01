@@ -11,14 +11,13 @@ package taller11;
 public abstract class Menu {
 
     protected String nombrePlato;
-    protected double valMenu;
     protected double valorInicial;
     protected double valorTotal;
+    protected double subTotal;
 
     public Menu(String nomP, double valorI) {
         nombrePlato = nomP;
         valorInicial = valorI;
-
     }
 
     public void establecerNombrePlato(String a) {
@@ -29,8 +28,8 @@ public abstract class Menu {
         valorInicial = a;
     }
 
-    public void establecerValMenu(double a) {
-        valMenu = a;
+    public void setSubTotal(double subTotal) {
+        this.subTotal = subTotal;
     }
     
 
@@ -42,8 +41,8 @@ public abstract class Menu {
         return valorInicial;
     }
 
-    public double obtenerValMenu() {
-        return valMenu;
+    public double getSubTotal() {
+        return subTotal;
     }
     
 

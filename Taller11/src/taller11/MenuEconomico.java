@@ -12,8 +12,13 @@ public class MenuEconomico extends Menu {
 
     private double descuento;
 
-    public void establecerDescuento(double a) {
-        descuento = a;
+    public MenuEconomico(String nomP, double valorI, double desc) {
+        super(nomP, valorI);
+        descuento = desc;
+    }
+
+    public void establecerDescuento() {
+        descuento = (descuento*valorTotal)/100;
     }
 
     public double obtenerDescuento() {
@@ -22,6 +27,26 @@ public class MenuEconomico extends Menu {
 
     @Override
     public void valorTotal() {
-
+        valorTotal = valorTotal - descuento;
     }
+
+    public double obtenerValorTotal() {
+        return valorTotal;
+    }
+    
+
+    @Override
+    public String toString() {
+
+        String cadena;
+        cadena = String.format("%s", super.toString());
+        cadena = String.format("%s"
+                + "Descuento: %.2f\n"
+                + "Valor del Menu: %.2f\n",
+                cadena,
+                descuento,
+                obtenerValorTotal());
+        return cadena;
+    }
+
 }

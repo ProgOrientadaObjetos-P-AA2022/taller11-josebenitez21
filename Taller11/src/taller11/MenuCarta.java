@@ -14,11 +14,11 @@ public class MenuCarta extends Menu {
     private double bebida;
     private double cargoAdicional;
 
-    public MenuCarta(String nomP, double valorI, double guar, double beb, double cargoA) {
+    public MenuCarta(String nomP, double valorI, double guar, double beb) {
         super(nomP, valorI);
         guarnicion = guar;
         bebida = beb;
-        cargoAdicional = cargoA;
+        
     }
 
     public void establecerGuarnicion(double a) {
@@ -29,7 +29,7 @@ public class MenuCarta extends Menu {
         bebida = a;
     }
 
-    public void establecerCargoAdicional(double a) {
+    public void establecerCargoAdicional() {
         cargoAdicional = (cargoAdicional * valorTotal) / 100;
     }
 
@@ -47,10 +47,10 @@ public class MenuCarta extends Menu {
 
     @Override
     public void valorTotal() {
-        valMenu = valMenu + bebida + guarnicion + cargoAdicional;
+        valorTotal = valorTotal + bebida + guarnicion + cargoAdicional;
     }
 
-    public double obetenerValorTotal() {
+    public double obtenerValorTotal() {
         return valorTotal;
     }
 
@@ -58,7 +58,7 @@ public class MenuCarta extends Menu {
     public String toString() {
         String cadena;
         cadena = String.format("%s", super.toString());
-        cadena = String.format("%s\n"
+        cadena = String.format("%s"
                 + "Guarnicion: %.2f\n"
                 + "Bebida: %.2f\n"
                 + "Cargo Adicional: %.2f\n"
@@ -67,7 +67,7 @@ public class MenuCarta extends Menu {
                 guarnicion,
                 bebida,
                 cargoAdicional,
-                obtenerValMenu());
+                obtenerValorTotal());
         return cadena;
     }
 

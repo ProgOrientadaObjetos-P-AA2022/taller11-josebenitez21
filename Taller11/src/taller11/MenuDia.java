@@ -37,7 +37,7 @@ public class MenuDia extends Menu {
 
     @Override
     public void valorTotal() {
-        valMenu = valMenu + postre + bebida;
+        valorTotal = valorTotal + postre + bebida;
     }
 
     public double obtenerValorTotal() {
@@ -48,14 +48,14 @@ public class MenuDia extends Menu {
     public String toString() {
         String cadena;
         cadena = String.format("%s", super.toString());
-        cadena = String.format("%s\n"
+        cadena = String.format("%s"
                 + "Postre: %.2f\n"
                 + "Bebida: %.2f\n"
                 + "Valor del Menu: %.2f\n",
                 cadena,
                 postre,
                 bebida,
-                obtenerValMenu());
+                obtenerValorTotal());
         return cadena;
     }
 
