@@ -9,7 +9,7 @@ package taller11;
  *
  * @author reroes
  */
-public class Taller11 {
+public class Ejecutor {
 
     /**
      * @param args the command line arguments
