@@ -18,7 +18,8 @@ public class MenuCarta extends Menu {
         super(nomP, valorI);
         guarnicion = guar;
         bebida = beb;
-        
+        cargoAdicional = 5;
+
     }
 
     public void establecerGuarnicion(double a) {
@@ -46,8 +47,8 @@ public class MenuCarta extends Menu {
     }
 
     @Override
-    public void valorTotal() {
-        valorTotal = valorTotal + bebida + guarnicion + cargoAdicional;
+    public void valorTotalMenu() {
+        valorTotal = valorInicial + guarnicion + bebida + cargoAdicional;
     }
 
     public double obtenerValorTotal() {

@@ -36,8 +36,8 @@ public class MenuNiños extends Menu {
     }
 
     @Override
-    public void valorTotal() {
-        valorTotal = valorTotal + helado + pastel;
+    public void valorTotalMenu() {
+        valorTotal = valorInicial + helado + pastel;
     }
 
     public double obtenerValorTotal() {
@@ -48,7 +48,7 @@ public class MenuNiños extends Menu {
     public String toString() {
 
         String cadena;
-        cadena = String.format("%s",super.toString());
+        cadena = String.format("%s", super.toString());
         cadena = String.format("%s"
                 + "Helado: %.2f\n"
                 + "Pastel: %.2f\n"

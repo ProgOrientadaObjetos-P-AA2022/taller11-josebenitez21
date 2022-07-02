@@ -22,7 +22,6 @@ public class Ejecutor {
         MenuCarta mc1 = new MenuCarta("Estofado", 5.75, 2.50, 1.50);
         MenuCarta mc2 = new MenuCarta("Milanesa", 6, 2.50, 1.50);
 //        mc1.establecerValorInicial();
-//        mc1.establecerCargoAdicional(10);
 //        mc2.establecerCargoAdicional(5);
 
         MenuDia md1 = new MenuDia("Almuerzo", 5.30, 2.50, 1.50);
@@ -37,13 +36,7 @@ public class Ejecutor {
         MenuNiños mn1 = new MenuNiños("Hamburguesa", 2.60, 1.80, 2.60);
         MenuNiños mn2 = new MenuNiños("Nachos", 2.30, 1.80, 2.30);
         ArrayList<Menu> listaCartas = new ArrayList<>();
-        Cuenta cuen = new Cuenta();
 
-        cuen.establecerListadoCartas(listaCartas);
-        cuen.establecerNombreCliente("Jose");
-        cuen.establecerSubtotal();
-        cuen.establecerIva(14);
-        cuen.establecerValorTotal();
         listaCartas.add(me1);
         listaCartas.add(me2);
         listaCartas.add(mc1);
@@ -54,9 +47,15 @@ public class Ejecutor {
         listaCartas.add(mn2);
 
         for (int i = 0; i < listaCartas.size(); i++) {
-            listaCartas.get(i).valorTotal();
+            listaCartas.get(i).valorTotalMenu();
         }
+        Cuenta cuen = new Cuenta();
 
+        cuen.establecerListadoCartas(listaCartas);
+        cuen.establecerNombreCliente("Jose");
+        cuen.establecerIdentificacion("110236544878");
+        cuen.establecerSubtotal();
+        cuen.establecerValorTotal();
         System.out.println(cuen);
     }
 

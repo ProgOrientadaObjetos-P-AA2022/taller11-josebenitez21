@@ -13,7 +13,6 @@ public abstract class Menu {
     protected String nombrePlato;
     protected double valorInicial;
     protected double valorTotal;
-    protected double subTotal;
 
     public Menu(String nomP, double valorI) {
         nombrePlato = nomP;
@@ -28,10 +27,9 @@ public abstract class Menu {
         valorInicial = a;
     }
 
-    public void setSubTotal(double subTotal) {
-        this.subTotal = subTotal;
+    public void establecerValorTotal(double a) {
+        valorTotal = a;
     }
-    
 
     public String obtenerNombrePlato() {
         return nombrePlato;
@@ -41,12 +39,11 @@ public abstract class Menu {
         return valorInicial;
     }
 
-    public double getSubTotal() {
-        return subTotal;
+    public double obtenerValorMenu() {
+        return valorTotal;
     }
-    
 
-    public abstract void valorTotal();
+    public abstract void valorTotalMenu();
 
     @Override
     public String toString() {

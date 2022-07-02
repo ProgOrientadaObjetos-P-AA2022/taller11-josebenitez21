@@ -18,7 +18,7 @@ public class MenuEconomico extends Menu {
     }
 
     public void establecerDescuento() {
-        descuento = (descuento*valorTotal)/100;
+        descuento = (descuento*valorInicial)/100;
     }
 
     public double obtenerDescuento() {
@@ -26,8 +26,8 @@ public class MenuEconomico extends Menu {
     }
 
     @Override
-    public void valorTotal() {
-        valorTotal = valorTotal - descuento;
+    public void valorTotalMenu() {
+        valorTotal = valorInicial - descuento;
     }
 
     public double obtenerValorTotal() {

@@ -36,8 +36,8 @@ public class MenuDia extends Menu {
     }
 
     @Override
-    public void valorTotal() {
-        valorTotal = valorTotal + postre + bebida;
+    public void valorTotalMenu() {
+        valorTotal = valorInicial + postre + bebida;
     }
 
     public double obtenerValorTotal() {

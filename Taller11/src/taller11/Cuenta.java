@@ -17,6 +17,7 @@ public class Cuenta {
     private double subtotal;
     private double valorTotal;
     private double iva;
+    private String identificacion;
 
     /*public Cuenta(String a, int b) {
         nombreCliente = a;
@@ -24,7 +25,7 @@ public class Cuenta {
         iva = 0.14;
     }*/
     public Cuenta() {
-        
+        iva = 14;
     }
 
     public void establecerNombreCliente(String a) {
@@ -36,17 +37,26 @@ public class Cuenta {
     }
 
     public void establecerSubtotal() {
-        for (int i = 0; i < listadoCartas.size(); i++) {
-            subtotal = subtotal + listadoCartas.get(i).valorTotal;
+          for (int i = 0; i < listadoCartas.size(); i++) {
+            subtotal = subtotal + listadoCartas.get(i).obtenerValorMenu();
         }
+        
     }
 
     public void establecerValorTotal() {
-        valorTotal = (valorTotal + subtotal) + iva;
+        for (int i = 0; i < listadoCartas.size(); i++) {
+            subtotal = subtotal + listadoCartas.get(i).obtenerValorMenu();
+        }
+        iva = (subtotal * iva) / 100;
+        valorTotal = subtotal + iva;
     }
 
     public void establecerIva(double a) {
-        iva = (subtotal * iva) / 100;
+        iva = a;
+    }
+
+    public void establecerIdentificacion(String a) {
+        identificacion = a;
     }
 
     public String obtenerNombreCliente() {
@@ -69,6 +79,10 @@ public class Cuenta {
         return iva;
     }
 
+    public String obtenerIdentificacion() {
+        return identificacion;
+    }
+
     public String toString() {
         String cadena = String.format("Datos Del Usuario\n"
                 + "Nombre del cliente: %s\n",
@@ -77,9 +91,15 @@ public class Cuenta {
             cadena = String.format("%s %s\n", cadena,
                     obtenerListadoCartas().get(i));
         }
-        cadena = String.format("%s\nIva: %.2f\n"
+        cadena = String.format("%s\n"
+                + "\nIdentificacion: %s\n"
+                + "Iva: %.2f\n"
                 + "Subtotal: %.2f\n"
-                + "Total: %.2f\n", cadena, iva, subtotal, valorTotal);
+                + "Total: %.2f\n", cadena,
+                identificacion,
+                iva,
+                subtotal,
+                obtenerValorTotal());
 
         return cadena;
     }
