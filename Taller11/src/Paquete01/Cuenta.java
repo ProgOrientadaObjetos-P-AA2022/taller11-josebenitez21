@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package taller11;
+package Paquete01;
 
 import java.util.ArrayList;
 
@@ -13,11 +13,10 @@ import java.util.ArrayList;
 public class Cuenta {
 
     private String nombreCliente;
-    private ArrayList<Menu> listadoCartas = new ArrayList<>();
+    private ArrayList<Menu> listadoCartas;
     private double subtotal;
     private double valorTotal;
     private double iva;
-    private String identificacion;
 
     /*public Cuenta(String a, int b) {
         nombreCliente = a;
@@ -26,6 +25,12 @@ public class Cuenta {
     }*/
     public Cuenta() {
         iva = 14;
+    }
+
+    public Cuenta(String nomClient, ArrayList<Menu> listCar, double ivaR) {
+        nombreCliente = nomClient;
+        listadoCartas = listCar;
+        iva = ivaR;
     }
 
     public void establecerNombreCliente(String a) {
@@ -37,26 +42,19 @@ public class Cuenta {
     }
 
     public void establecerSubtotal() {
-          for (int i = 0; i < listadoCartas.size(); i++) {
-            subtotal = subtotal + listadoCartas.get(i).obtenerValorMenu();
+        for (int i = 0; i < listadoCartas.size(); i++) {
+            subtotal = subtotal + listadoCartas.get(i).obtenerValorTotal();
         }
-        
+
     }
 
     public void establecerValorTotal() {
-        for (int i = 0; i < listadoCartas.size(); i++) {
-            subtotal = subtotal + listadoCartas.get(i).obtenerValorMenu();
-        }
-        iva = (subtotal * iva) / 100;
-        valorTotal = subtotal + iva;
+
+        valorTotal = subtotal + (subtotal * (iva / 100));
     }
 
     public void establecerIva(double a) {
         iva = a;
-    }
-
-    public void establecerIdentificacion(String a) {
-        identificacion = a;
     }
 
     public String obtenerNombreCliente() {
@@ -79,10 +77,7 @@ public class Cuenta {
         return iva;
     }
 
-    public String obtenerIdentificacion() {
-        return identificacion;
-    }
-
+    @Override
     public String toString() {
         String cadena = String.format("Datos Del Usuario\n"
                 + "Nombre del cliente: %s\n",
@@ -92,11 +87,9 @@ public class Cuenta {
                     obtenerListadoCartas().get(i));
         }
         cadena = String.format("%s\n"
-                + "\nIdentificacion: %s\n"
-                + "Iva: %.2f\n"
+                + "Iva: %.2f %%\n"
                 + "Subtotal: %.2f\n"
                 + "Total: %.2f\n", cadena,
-                identificacion,
                 iva,
                 subtotal,
                 obtenerValorTotal());

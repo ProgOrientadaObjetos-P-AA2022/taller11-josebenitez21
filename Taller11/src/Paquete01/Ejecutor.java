@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package taller11;
+package Paquete01;
 
 import java.util.ArrayList;
 
@@ -30,9 +30,6 @@ public class Ejecutor {
         MenuEconomico me1 = new MenuEconomico("Plato 1", 3.10, 10);
         MenuEconomico me2 = new MenuEconomico("Plato 2", 2.60, 10);
 
-        me1.establecerDescuento();
-        me2.establecerDescuento();
-
         MenuNiños mn1 = new MenuNiños("Hamburguesa", 2.60, 1.80, 2.60);
         MenuNiños mn2 = new MenuNiños("Nachos", 2.30, 1.80, 2.30);
         ArrayList<Menu> listaCartas = new ArrayList<>();
@@ -47,13 +44,11 @@ public class Ejecutor {
         listaCartas.add(mn2);
 
         for (int i = 0; i < listaCartas.size(); i++) {
-            listaCartas.get(i).valorTotalMenu();
+            listaCartas.get(i).establecerValorTotal();
         }
         Cuenta cuen = new Cuenta();
-
         cuen.establecerListadoCartas(listaCartas);
         cuen.establecerNombreCliente("Jose");
-        cuen.establecerIdentificacion("110236544878");
         cuen.establecerSubtotal();
         cuen.establecerValorTotal();
         System.out.println(cuen);

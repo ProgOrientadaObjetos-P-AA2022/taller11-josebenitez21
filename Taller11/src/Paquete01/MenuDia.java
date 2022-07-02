@@ -2,61 +2,58 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package taller11;
+package Paquete01;
 
 /**
  *
  * @author M S I
  */
-public class MenuNiños extends Menu {
+public class MenuDia extends Menu {
 
-    private double helado;
-    private double pastel;
+    private double postre;
+    private double bebida;
 
-    public MenuNiños(String nomP, double valorI, double hel, double pas) {
+    public MenuDia(String nomP, double valorI, double post, double beb) {
         super(nomP, valorI);
-        helado = hel;
-        pastel = pas;
+        postre = post;
+        bebida = beb;
     }
 
     public void establecerPostre(double a) {
-        helado = a;
+        postre = a;
     }
 
     public void establecerPastel(double a) {
-        pastel = a;
+        bebida = a;
     }
 
     public double obtenerPostre() {
-        return helado;
+        return postre;
     }
 
     public double obtenerPastel() {
-        return pastel;
+        return bebida;
     }
 
     @Override
-    public void valorTotalMenu() {
-        valorTotal = valorInicial + helado + pastel;
+    public void establecerValorTotal() {
+        valorTotal = valorInicial + postre + bebida;
     }
 
-    public double obtenerValorTotal() {
-        return valorTotal;
-    }
 
     @Override
     public String toString() {
-
         String cadena;
         cadena = String.format("%s", super.toString());
         cadena = String.format("%s"
-                + "Helado: %.2f\n"
-                + "Pastel: %.2f\n"
-                + "Valor del Menu: %.2f\n",
+                + "\tPostre: %.2f\n"
+                + "\tBebida: %.2f\n"
+                + "\tValor del Menu: %.2f\n",
                 cadena,
-                helado,
-                pastel,
+                postre,
+                bebida,
                 obtenerValorTotal());
         return cadena;
     }
+
 }

@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package taller11;
+package Paquete01;
 
 /**
  *
@@ -17,8 +17,8 @@ public class MenuEconomico extends Menu {
         descuento = desc;
     }
 
-    public void establecerDescuento() {
-        descuento = (descuento*valorInicial)/100;
+    public void establecerDescuento(double a) {
+        descuento = a;
     }
 
     public double obtenerDescuento() {
@@ -26,14 +26,9 @@ public class MenuEconomico extends Menu {
     }
 
     @Override
-    public void valorTotalMenu() {
-        valorTotal = valorInicial - descuento;
+    public void establecerValorTotal() {
+        valorTotal = valorInicial - ((descuento * valorInicial) / 100);
     }
-
-    public double obtenerValorTotal() {
-        return valorTotal;
-    }
-    
 
     @Override
     public String toString() {
@@ -41,8 +36,8 @@ public class MenuEconomico extends Menu {
         String cadena;
         cadena = String.format("%s", super.toString());
         cadena = String.format("%s"
-                + "Descuento: %.2f\n"
-                + "Valor del Menu: %.2f\n",
+                + "\tDescuento: %.2f\n"
+                + "\tValor del Menu: %.2f\n",
                 cadena,
                 descuento,
                 obtenerValorTotal());

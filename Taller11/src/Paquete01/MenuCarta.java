@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package taller11;
+package Paquete01;
 
 /**
  *
@@ -19,6 +19,14 @@ public class MenuCarta extends Menu {
         guarnicion = guar;
         bebida = beb;
         cargoAdicional = 5;
+
+    }
+    public MenuCarta(String nomP, double valorI, double guar, double beb,
+            double carg1) {
+        super(nomP, valorI);
+        guarnicion = guar;
+        bebida = beb;
+        cargoAdicional = carg1;
 
     }
 
@@ -47,23 +55,19 @@ public class MenuCarta extends Menu {
     }
 
     @Override
-    public void valorTotalMenu() {
+    public void establecerValorTotal() {
         valorTotal = valorInicial + guarnicion + bebida + cargoAdicional;
-    }
-
-    public double obtenerValorTotal() {
-        return valorTotal;
     }
 
     @Override
     public String toString() {
         String cadena;
-        cadena = String.format("%s", super.toString());
+        cadena = String.format("%s\n", super.toString());
         cadena = String.format("%s"
                 + "Guarnicion: %.2f\n"
                 + "Bebida: %.2f\n"
                 + "Cargo Adicional: %.2f\n"
-                + "Valor del Menu: %.2f",
+                + "Valor del Menu: %.2f\n",
                 cadena,
                 guarnicion,
                 bebida,
