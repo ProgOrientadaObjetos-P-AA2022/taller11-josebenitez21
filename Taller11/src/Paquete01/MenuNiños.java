@@ -44,7 +44,7 @@ public class MenuNiños extends Menu {
     public String toString() {
 
         String cadena;
-        cadena = String.format("Menu del dia:\n \t%s", super.toString());
+        cadena = String.format("Menu del niños:\n \t%s", super.toString());
         cadena = String.format("%s"
                 + "\tHelado: %.2f\n"
                 + "\tPastel: %.2f\n"
